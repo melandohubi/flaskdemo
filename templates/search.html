@@ -1,8 +1,20 @@
 {% extends "layout.html" %}
+
 {% block title %}Search Wikipedia{% endblock %}
+
 {% block content %}
-<form method="post" action="">
-    <p><label>Search: <input type="text" id="search" name="search"></label></p>
-    <p><input type="submit" id="submit" value="Search"></p>
+<h1>Search Wikipedia</h1>  <!-- Added a heading for better context -->
+<form method="post" action="{{ url_for('search') }}">  <!-- Specify the action route -->
+    <p>
+        <label for="search">Search:
+            <input type="text" id="search" name="search" required placeholder="Enter a search term...">  <!-- Added placeholder and required attribute -->
+        </label>
+    </p>
+    <p>
+        <input type="submit" id="submit" value="Search">
+    </p>
 </form>
+{% if error %}  <!-- Display error message if provided -->
+    <p style="color: red;">{{ error }}</p>
+{% endif %}
 {% endblock %}
