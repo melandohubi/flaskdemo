@@ -1,5 +1,11 @@
 {% extends "layout.html" %}
+
 {% block title %}Home{% endblock %}
+
 {% block content %}
+    <h1>Welcome to the Flask Demo!</h1>
     <p>This is the home page. It's not exciting yet...</p>
+
+    <p>Explore the Wikipedia API by searching for articles!</p>
+    <p><a href="{{ url_for('about') }}">Learn more about this project</a></p> <!-- Link to the About page -->
 {% endblock %}
